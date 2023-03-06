@@ -12,7 +12,7 @@
     "lint": "yarn eslint src --max-warnings=0",
     "start": "yarn build && node ./build/index.js",
     "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "prepare": "husky install && yarn husky add .husky/pre-commit 'yarn test'"
+    "prepare": "yarn husky install && yarn husky add .husky/pre-commit 'yarn lint-staged'"
   },
   "husky": {
     "hooks": {
