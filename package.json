@@ -21,9 +21,7 @@
   },
   "lint-staged": {
     "**/*.ts": [
-      "npx format",
-      "npx lint",
-      "npx test"
+      "npm test"
     ]
   },
   "devDependencies": {
