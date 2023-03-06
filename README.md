@@ -10,6 +10,7 @@ touch .gitignore
 
 ```txt
 build
+.husky
 coverage
 yarn.lock
 node_modules
@@ -60,7 +61,7 @@ const user: User = {
   name: 'Emilio',
 }
 
-console.log(user)
+console.log(`LOG => ${JSON.stringify(user)}`)
 
 export default user
 ```
@@ -133,6 +134,7 @@ touch .prettierignore
 
 ```txt
 build
+.husky
 coverage
 yarn.lock
 node_modules
@@ -170,6 +172,7 @@ touch .eslintignore
 
 ```txt
 build
+.husky
 coverage
 yarn.lock
 node_modules
@@ -201,45 +204,33 @@ yarn nodemon
 ```
 
 ```bash
-ctrl + c
-```
-
-```bash
 yarn add -D husky lint-staged rimraf
-```
-
-```bash
-yarn husky install
-```
-
-```bash
-yarn husky add .husky/pre-commit "yarn lint-staged"
 ```
 
 add the content below to package.json
 
 ```json
 "scripts": {
-  "prepare": "husky install",
-    "start:dev": "yarn nodemon",
-    "test": "yarn jest --coverage",
-    "build": "yarn rimraf ./build && yarn tsc",
-    "lint": "yarn eslint src --max-warnings=0",
-    "start": "yarn build && node ./build/index.js",
-    "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
+  "start:dev": "yarn nodemon",
+  "build": "yarn rimraf ./build && yarn tsc",
+  "lint": "yarn eslint src --max-warnings=0",
+  "start": "yarn build && node ./build/index.js",
+  "test": "yarn jest --findRelatedTests --watchAll=false --coverage",
+  "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+  "prepare": "yarn husky install && yarn husky add .husky/pre-commit 'yarn lint-staged'"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.ts": [
-      "yarn format",
-      "yarn lint",
-      "yarn test"
-    ]
+"husky": {
+  "hooks": {
+    "pre-commit": "lint staged"
   }
+},
+"lint-staged": {
+  "**/*.ts": [
+    "yarn format",
+    "yarn lint",
+    "yarn test"
+  ]
+}
 ```
 
 ```bash
