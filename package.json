@@ -23,7 +23,7 @@
     "**/*.ts": [
       "yarn format",
       "yarn lint",
-      "yarn test --findRelatedTests --watchAll=false --silent"
+      "yarn test --findRelatedTests --passWithNoTests"
     ]
   },
   "devDependencies": {
