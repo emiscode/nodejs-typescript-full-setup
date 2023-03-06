@@ -12,7 +12,7 @@
     "start": "yarn build && node ./build/index.js",
     "test": "yarn jest --watchAll=false --coverage",
     "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "prepare": "yarn husky install && yarn husky add .husky/pre-commit 'yarn lint-staged'"
+    "prepare": "yarn husky install && yarn husky add .husky/pre-commit 'yarn lint-staged' && yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'"
   },
   "husky": {
     "hooks": {

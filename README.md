@@ -229,7 +229,8 @@ add the content below to package.json
   },
 "husky": {
   "hooks": {
-    "pre-commit": "lint staged"
+    "pre-commit": "yarn lint staged",
+    "commit-msg": "yarn commitlint --edit $1"
   }
 },
 "lint-staged": {
