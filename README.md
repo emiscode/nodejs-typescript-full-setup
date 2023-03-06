@@ -45,10 +45,11 @@ touch tsconfig.json
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "preserveConstEnums": true
+    "preserveConstEnums": true,
+    "outDir": "build"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts"]
+  "exclude": ["node_modules", "test/**/*"]
 }
 ```
 
