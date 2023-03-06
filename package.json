@@ -16,12 +16,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint staged"
+      "pre-commit": "yarn commitlint --edit && yarn lint staged"
     }
   },
   "lint-staged": {
     "**/*.ts": [
-      "yarn commitlint",
       "yarn format",
       "yarn lint",
       "yarn test --findRelatedTests --passWithNoTests"
