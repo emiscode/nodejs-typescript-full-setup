@@ -234,5 +234,34 @@ add the content below to package.json
 ```
 
 ```bash
+yarn add --dev  @commitlint/cli @commitlint/config-conventional
+```
+
+```bash
+touch commitlint.config.ts
+```
+
+```ts
+import type { UserConfig } from '@commitlint/types'
+
+const Configuration: UserConfig = {
+  extends: ['@commitlint/config-conventional'],
+  formatter: '@commitlint/format',
+  helpUrl:
+    'https://github.com/conventional-changelog/commitlint/#what-is-commitlint',
+}
+
+module.exports = Configuration
+```
+
+```bash
+echo "fox: teste" | yarn commitlint
+```
+
+```bash
+echo "fix: teste" | yarn commitlint
+```
+
+```bash
 yarn start:Dev
 ```

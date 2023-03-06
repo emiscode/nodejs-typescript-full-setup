@@ -10,7 +10,7 @@
     "build": "yarn rimraf ./build && yarn tsc",
     "lint": "yarn eslint src --max-warnings=0",
     "start": "yarn build && node ./build/index.js",
-    "test": "yarn jest --findRelatedTests --watchAll=false --coverage",
+    "test": "yarn jest --watchAll=false --coverage",
     "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "prepare": "yarn husky install && yarn husky add .husky/pre-commit 'yarn lint-staged'"
   },
@@ -23,10 +23,12 @@
     "**/*.ts": [
       "yarn format",
       "yarn lint",
-      "yarn test"
+      "yarn test --findRelatedTests --watchAll=false --silent"
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "@tsconfig/recommended": "^1.0.2",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.14.6",
