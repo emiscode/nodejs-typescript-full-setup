@@ -1,4 +1,5 @@
 build
+.husky
 coverage
 yarn.lock
 node_modules
