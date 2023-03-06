@@ -16,7 +16,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn commitlint --edit && yarn lint staged"
+      "pre-commit": "yarn lint staged",
+      "commit-msg": "yarn commitlint --edit $1"
     }
   },
   "lint-staged": {
