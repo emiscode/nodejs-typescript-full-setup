@@ -212,16 +212,21 @@ yarn add -D husky lint-staged rimraf
 yarn husky install
 ```
 
+```bash
+yarn husky add .husky/pre-commit "yarn lint-staged"
+```
+
 add the content below to package.json
 
 ```json
 "scripts": {
-  "start:dev": "yarn nodemon",
-  "test": "yarn jest --coverage",
-  "build": "yarn rimraf ./build && yarn tsc",
-  "lint": "yarn eslint src --max-warnings=0",
-  "start": "yarn build && node ./build/index.js",
-  "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
+  "prepare": "husky install",
+    "start:dev": "yarn nodemon",
+    "test": "yarn jest --coverage",
+    "build": "yarn rimraf ./build && yarn tsc",
+    "lint": "yarn eslint src --max-warnings=0",
+    "start": "yarn build && node ./build/index.js",
+    "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
   },
   "husky": {
     "hooks": {
