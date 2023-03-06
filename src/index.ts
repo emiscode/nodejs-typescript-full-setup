@@ -8,6 +8,6 @@ const user: User = {
   birthDate: 1985,
 }
 
-console.log(`=> ${JSON.stringify(user)}`)
+console.log(`LOG => ${JSON.stringify(user)}`)
 
 export default user

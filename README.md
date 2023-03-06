@@ -223,9 +223,9 @@ add the content below to package.json
   "build": "yarn rimraf ./build && yarn tsc",
   "lint": "yarn eslint src --max-warnings=0",
   "start": "yarn build && node ./build/index.js",
-  "test": "yarn jest --findRelatedTests --watchAll=false --coverage",
+  "test": "yarn jest --watchAll=false --coverage",
   "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-  "prepare": "yarn husky install && yarn husky add .husky/pre-commit 'yarn lint-staged'"
+  "prepare": "yarn husky install && yarn husky add .husky/pre-commit 'yarn lint-staged' && yarn husky add .husky/commit-msg 'yarn commitlint --edit $1'"
   },
 "husky": {
   "hooks": {
@@ -237,9 +237,9 @@ add the content below to package.json
   "**/*.ts": [
     "yarn format",
     "yarn lint",
-    "yarn test"
+    "yarn test --findRelatedTests --passWithNoTests"
   ]
-}
+},
 ```
 
 ```bash
