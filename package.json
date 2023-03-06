@@ -7,21 +7,23 @@
   "private": false,
   "scripts": {
     "start:dev": "yarn nodemon",
-    "test": "yarn jest --coverage",
     "build": "yarn rimraf ./build && yarn tsc",
     "lint": "yarn eslint src --max-warnings=0",
     "start": "yarn build && node ./build/index.js",
+    "test": "yarn jest --findRelatedTests --watchAll=false --coverage",
     "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "prepare": "yarn husky install && yarn husky add .husky/pre-commit 'yarn lint-staged'"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint staged"
+      "pre-commit": "yarn lint staged"
     }
   },
   "lint-staged": {
     "**/*.ts": [
-      "npm test"
+      "yarn format",
+      "yarn lint",
+      "yarn test"
     ]
   },
   "devDependencies": {
