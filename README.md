@@ -1,5 +1,13 @@
 # Node.js + TypeScript
 
+- typescript
+- eslint
+- prettier
+- commitlint
+- jest
+- nodemon
+- husky
+
 ```bash
 git init
 ```
