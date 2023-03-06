@@ -4,13 +4,17 @@
   "main": "build/index.js",
   "author": "Emilio Scodeler",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "start:dev": "yarn nodemon",
     "test": "yarn jest --coverage",
     "build": "yarn rimraf ./build && yarn tsc",
     "lint": "yarn eslint src --max-warnings=0",
     "start": "yarn build && node ./build/index.js",
-    "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
+    "format": "yarn prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
   },
   "husky": {
     "hooks": {
@@ -36,6 +40,7 @@
     "jest": "^29.5.0",
     "lint-staged": "^13.1.2",
     "nodemon": "^2.0.21",
+    "pinst": "^3.0.0",
     "prettier": "^2.8.4",
     "rimraf": "^4.3.0",
     "ts-jest": "^29.0.5",
