@@ -21,9 +21,9 @@
   },
   "lint-staged": {
     "**/*.ts": [
-      "yarn format",
-      "yarn lint",
-      "yarn test"
+      "npx format",
+      "npx lint",
+      "npx test"
     ]
   },
   "devDependencies": {

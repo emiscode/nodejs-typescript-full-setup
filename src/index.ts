@@ -6,6 +6,6 @@ const user: User = {
   name: 'Emilio',
 }
 
-console.log(`=> ${JSON.stringify(user)}`)
+console.log(`LOG => ${JSON.stringify(user)}`)
 
 export default user
